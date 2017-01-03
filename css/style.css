@@ -1,0 +1,7 @@
+.wrapper {  }
+    .sliderWrapper { width: 800px; overflow: hidden; }
+        .slider { width: 3999999px; margin: 0 auto; padding: 0; list-style: none; }
+            .sliderItem { float: left; margin: 0; padding: 0; }
+        .sliderPagination {  }
+            .sliderPaginationItem {  }
+                .sliderPaginationItemText {  }

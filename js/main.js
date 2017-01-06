@@ -6,24 +6,33 @@ var slidercount = sliderItem.length;
 var currentSlide = 1;
 var runSlide = false;
 var playButton = document.getElementById('playButton');
+var interval;
+
+playButton.addEventListener('click', slide);
 
 function slide(){
+    runSlide = !runSlide;
+    console.log(runSlide);
+    if(runSlide) {
+        setInterval(animate, 3000);
+    } else {
+        stopanimate();
+    }
+}
+
+function animate() {
+    interval = setInterval(function(){
         slider.animate({'margin-left': '-='+width}, 1000, function () {
             if (++currentSlide === slidercount) {
                 currentSlide = 1;
                 slider.css('margin-left', 0);
             }
-        });
+        } );
+    })
 }
 
-function runSlider() {
-    runSlide = !runSlide;
-    if (runSlide) {
-        setInterval(slide, 3000);
-    } else {
-        slider.css('margin-left', 0);
-    }
-    console.log(runSlide);
+function stopanimate() {
+    clearInterval(interval);
 }
 
-playButton.addEventListener('click', runSlider);
+setInterval(animate, 3000);
